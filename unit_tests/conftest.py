@@ -15,7 +15,7 @@ def dbt_profile_target():
             'keyfile': os.environ.get("GITHUB_WORKSPACE") + "/unit_tests/dbt-service-account.json",
             'threads': 4,
             'timeout_seconds': 300,
-            'project':  os.environ.get("BIGQUERY_PROJECT")
+            # 'project':  os.environ.get("BIGQUERY_PROJECT")
         }
     return {
         'type': 'bigquery',
