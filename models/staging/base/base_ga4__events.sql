@@ -5,7 +5,7 @@
 
 {{
     config(
-        pre_hook="{{ ga4.combine_property_data() }}" if var('property_ids', false) else "",
+        pre_hook="{{ combine_property_data() }}" if var('property_ids', false) else "",
         materialized = 'incremental',
         incremental_strategy = 'insert_overwrite',
         partition_by={
@@ -19,8 +19,8 @@
 
 with source as (
     select 
-        {{ ga4.base_select_source() }}
-        from {{ source('ga4', 'events') }}
+        {{ base_select_source() }}
+        from {{ source('dbtga4', 'events') }}
         where cast( replace(_table_suffix, 'intraday_', '') as int64) >= {{var('start_date')}}
     {% if is_incremental() %}
         and parse_date('%Y%m%d', left( replace(_table_suffix, 'intraday_', ''), 8)) in ({{ partitions_to_replace | join(',') }})
@@ -28,7 +28,7 @@ with source as (
 ),
 renamed as (
     select 
-        {{ ga4.base_select_renamed() }}
+        {{ base_select_renamed() }}
     from source
 )
 

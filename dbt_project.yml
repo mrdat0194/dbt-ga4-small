@@ -14,7 +14,15 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
-  ga4:
+  dbtga4:
     +materialized: view
     marts:
       +materialized: table
+
+vars:
+  current_day: "20230919"
+  static_incremental_days: 3
+  project: "shopkasatriavn"
+  dataset: "analytics_274956178"
+  start_date: "20230919" # Earliest date to load
+  
