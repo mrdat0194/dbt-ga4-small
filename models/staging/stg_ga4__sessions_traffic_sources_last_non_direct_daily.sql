@@ -8,7 +8,7 @@
             "data_type": "date",
             "granularity": "day"
         },
-        partitions = partitions_to_replace
+--        partitions = partitions_to_replace
     )
 }}
 
