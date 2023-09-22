@@ -28,4 +28,4 @@ my_project:
       threads: 1
       timeout_seconds: 300
 
-  target: "{{ env_var('DBT_EXEC_PROFILE') }}" 
+  target: "{{ var('DBT_EXEC_PROFILE') }}"
