@@ -6,7 +6,6 @@
 # TODO: use different credentials for dev and prod
 my_project:
   outputs:
-
     dev: 
       type: bigquery
       project: <your-project-id>

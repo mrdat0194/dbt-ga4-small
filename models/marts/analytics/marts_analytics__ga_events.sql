@@ -33,7 +33,7 @@
       FROM
         {{ ref('intermediate_analytics__events_wide_format') }}
      WHERE -- ignore data before the union point with UA archival data:
-           event_date >= {{ var('ua_ga4_stitch_date') }}
+           event_date >= {{ var('example_var') }}
 {% if is_incremental() %}
        AND ( -- in incremental mode, add/replace data from last daily partition onwards:
                 event_date >= DATE(_dbt_max_partition)

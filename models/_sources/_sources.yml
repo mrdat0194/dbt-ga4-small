@@ -1,11 +1,10 @@
 version: 2
 
 sources:
-
-  - name: google_analytics
+  - name: google_analytics_live
     description: "Google Analytics 4 export"
-    database: project-id
-    schema: analytics_111111111
+    database: shopkasatriavn
+    schema: analytics_274956178
     tables:
       - name: events
         identifier: events_*

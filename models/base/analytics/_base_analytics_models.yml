@@ -1,7 +1,6 @@
 version: 2
 
 models:
-
   # please see https://support.google.com/firebase/answer/7029846?hl=en for a full description of
   # the heavily nested GA4 BigQuery Export schema.
   - name: base_analytics__events

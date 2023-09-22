@@ -51,7 +51,7 @@
         ecommerce, -- Structure containing many fields
         items, -- Structure containing many fields
       FROM
-        {{ source('google_analytics_live', 'events') }}
+       {{ source('google_analytics_live', 'events') }}
 {% if is_incremental() %}
      WHERE
            -- events from the 'intraday' tables should always be included
