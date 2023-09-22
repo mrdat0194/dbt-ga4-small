@@ -8,7 +8,7 @@ my_project:
   outputs:
     dev: 
       type: bigquery
-      project: <your-project-id>
+      project: shopkasatriavn
       location: EU
       method: service-account
       keyfile: /config/credentials.json
@@ -19,7 +19,7 @@ my_project:
 
     prod: 
       type: bigquery
-      project: <your-project-id>
+      project: shopkasatriavn
       location: EU
       method: service-account
       keyfile: /config/credentials.json
