@@ -1,4 +1,4 @@
-name: 'dbt-ga4'
+name: 'dbtga4'
 version: '5.0.0'
 config-version: 2
 model-paths: ["models"]
