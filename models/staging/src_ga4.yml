@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: dbtga4
+  - name: ga4
     database: "{{var('project')}}" 
     schema: "{{var('dataset')}}" 
     tables:

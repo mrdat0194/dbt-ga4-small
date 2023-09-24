@@ -20,7 +20,7 @@
 with source as (
     select 
         {{ base_select_source() }}
-        from {{ source('dbtga4', 'events') }}
+        from {{ source('ga4', 'events') }}
         where cast( replace(_table_suffix, 'intraday_', '') as int64) >= {{var('start_date')}}
     {% if is_incremental() %}
         and parse_date('%Y%m%d', left( replace(_table_suffix, 'intraday_', ''), 8)) in ({{ partitions_to_replace | join(',') }})
