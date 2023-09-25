@@ -18,11 +18,13 @@ models:
     +materialized: view
     marts:
       +materialized: table
+  schema: schema1_20220730
 
 vars:
-  current_day: "20230919"
-  static_incremental_days: 3
+  current_day: "20220730"
+  static_incremental_days: 1
   project: "shopkasatriavn"
-  dataset: "analytics_274956178"
-  start_date: "20230919" # Earliest date to load
+  dataset: "analytics_270502330"
+  start_date: "20220730" # Earliest date to load
+  end_date: "20220730"
   
