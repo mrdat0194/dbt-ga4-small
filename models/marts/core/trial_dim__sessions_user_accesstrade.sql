@@ -1,4 +1,3 @@
--- Dimension table for sessions based on the first event that isn't session_start or first_visit.
 with purchase_with_params as (
   select * except (ecommerce),
     ecommerce.total_item_quantity,
@@ -29,15 +28,11 @@ join_traffic_source as (
     select 
         purchase_with_params.session_key,
         purchase_with_params.client_key,
+        purchase_with_params.event_name,
         purchase_with_params.user_pseudo_id,
         purchase_with_params.purchase_revenue,
-        sessions_traffic_sources.session_source,
-        sessions_traffic_sources.session_medium,
-        sessions_traffic_sources.session_campaign,
-        sessions_traffic_sources.session_content,
-        sessions_traffic_sources.session_term,
-        sessions_traffic_sources.session_default_channel_grouping,
-        sessions_traffic_sources.session_source_category
+        purchase_with_params.total_item_quantity,
+       
     from purchase_with_params
     left join {{ref('stg_ga4__sessions_traffic_sources')}} sessions_traffic_sources using (session_key)
     where sessions_traffic_sources.session_source = 'accesstrade'
@@ -48,7 +43,8 @@ include_session_properties as (
     from join_traffic_source
     {% if var('derived_session_properties', false) %}
     -- If derived session properties have been assigned as variables, join them on the session_key
-    left join {{ref('stg_ga4__derived_session_properties')}} using (session_key)
+    join {{ref('stg_ga4__derived_session_properties')}} using (session_key)
+
     {% endif %}
 )
 

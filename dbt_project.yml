@@ -27,4 +27,10 @@ vars:
   dataset: "analytics_270502330"
   start_date: "20220730" # Earliest date to load
   end_date: "20220730"
-  
+  user_properties:
+    - user_property_name: "aff_sid"
+      value_type: "string_value"
+  derived_session_properties:
+    - user_property: "aff_sid"
+      session_property_name: "aff_sid"
+      value_type: "string_value"
